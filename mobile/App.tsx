@@ -9,8 +9,9 @@ import {
   Inter_800ExtraBold 
 } from '@expo-google-fonts/inter';
 
-import { Loading } from './src/Components/Loading';
 import { Routes } from './src/routes';
+import { Loading } from './src/Components/Loading';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts ({
@@ -21,15 +22,17 @@ export default function App() {
   });
 
   if(!fontsLoaded) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   return (
     <>
+      <StatusBar 
+        barStyle="light-content" 
+        backgroundColor="transparent" 
+        translucent 
+      />
       <Routes /> 
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
     </>
   );
 }
